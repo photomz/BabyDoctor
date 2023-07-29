@@ -1,10 +1,17 @@
 import argparse
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parents[1].resolve()))
+
+
 from llava.model.builder import load_pretrained_model
 from llava.mm_utils import get_model_name_from_path
 
 
 def merge_lora(args):
-    model_name = get_model_name_from_path(args.model_path)
+    model_name = args.model_path # get_model_name_from_path(args.model_path)
+    print(model_name)
     tokenizer, model, image_processor, context_len = load_pretrained_model(args.model_path, args.model_base, model_name, device_map='cpu')
 
     model.save_pretrained(args.save_model_path)
