@@ -1,0 +1,35 @@
+deepspeed LLaVA/llava/train/train_mem.py \
+    --deepspeed LLaVA/scripts/zero2.json \
+    --lora_enable True \
+    --bits 4 \
+    --version '0.0.1' \
+    --model_name_or_path 'kaelee/llava-llama-2-7b-chat-finetuning' \
+    --data_path 'roco/roco-train-1.json' \
+    --image_folder roco-dataset/data/train/radiology/images \
+    --vision_tower openai/clip-vit-large-patch14 \
+    --mm_vision_select_layer -2 \
+    --mm_use_im_start_end False \
+    --mm_use_im_patch_token False \
+    --bf16 True \
+    --output_dir ./lora-roco-llava \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 16 \
+    --per_device_eval_batch_size 4 \
+    --gradient_accumulation_steps 1 \
+    --evaluation_strategy "no" \
+    --save_strategy "steps" \
+    --save_steps 100 \
+    --save_total_limit 3 \
+    --learning_rate 2e-5 \
+    --weight_decay 0. \
+    --warmup_ratio 0.03 \
+    --lr_scheduler_type "cosine" \
+    --logging_steps 1 \
+    --tf32 True \
+    --model_max_length 2048 \
+    --gradient_checkpointing True \
+    --lazy_preprocess True \
+    --dataloader_num_workers 4 \
+    --push-to-hub True
+
+   # --model_name_or_path ~/.cache/huggingface/hub/models--kaelee--llava-llama-2-7b-chat-finetuning/snapshots/* \
