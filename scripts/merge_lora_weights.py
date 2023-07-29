@@ -17,12 +17,17 @@ def merge_lora(args):
     model.save_pretrained(args.save_model_path)
     tokenizer.save_pretrained(args.save_model_path)
 
+    if args.push_to_hub:
+        model.push_to_hub(args.save_model_path)
+        tokenizer.push_to_hub(args.save_model_path)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, required=True)
     parser.add_argument("--model-base", type=str, required=True)
     parser.add_argument("--save-model-path", type=str, required=True)
+    parser.add_argument("--push-to-hub", type=bool, required=False, default=True)
 
     args = parser.parse_args()
 
