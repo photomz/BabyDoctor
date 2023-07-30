@@ -173,32 +173,8 @@ def http_bot(state, model_selector, temperature, top_p, max_new_tokens, request:
         return
 
     if len(state.messages) == state.offset + 2:
-        # First round of conversation
-        # if "llava" in model_name.lower():
-            # if 'llama-2' in model_name.lower():
         template_name = "llava_llama_2"
-            # elif "v1" in model_name.lower():
-            #     if 'mmtag' in model_name.lower():
-            #         template_name = "v1_mmtag"
-            #     elif 'plain' in model_name.lower() and 'finetune' not in model_name.lower():
-            #         template_name = "v1_mmtag"
-            #     else:
-            #         template_name = "llava_v1"
-            # elif "mpt" in model_name.lower():
-            #     template_name = "mpt"
-            # else:
-            #     if 'mmtag' in model_name.lower():
-            #         template_name = "v0_mmtag"
-            #     elif 'plain' in model_name.lower() and 'finetune' not in model_name.lower():
-            #         template_name = "v0_mmtag"
-            #     else:
-            #         template_name = "llava_v0"
-        # elif "mpt" in model_name:
-        #     template_name = "mpt_text"
-        # elif "llama-2" in model_name:
-        #     template_name = "llama_2"
-        # else:
-        #     template_name = "vicuna_v1"
+
         new_state = conv_templates[template_name].copy()
         new_state.append_message(new_state.roles[0], state.messages[-2][1])
         new_state.append_message(new_state.roles[1], None)
@@ -288,8 +264,8 @@ def http_bot(state, model_selector, temperature, top_p, max_new_tokens, request:
         fout.write(json.dumps(data) + "\n")
 
 title_markdown = ("""
-# 🌋 LLaVA: Large Language and Vision Assistant
-[[Project Page]](https://llava-vl.github.io) [[Paper]](https://arxiv.org/abs/2304.08485) [[Code]](https://github.com/haotian-liu/LLaVA) [[Model]](https://huggingface.co/liuhaotian/LLaVA-13b-delta-v0)
+# 🩻 BabyDoctor: Radiology Vision Assistant
+[[Code]](https://github.com/photomz/LLaVA) [[Model]](https://huggingface.co/photonmz/llava-roco-8bit)
 """)
 
 tos_markdown = ("""
@@ -333,17 +309,18 @@ def build_demo(embed_mode):
 
                 cur_dir = os.path.dirname(os.path.abspath(__file__))
                 gr.Examples(examples=[
-                    [f"{cur_dir}/examples/extreme_ironing.jpg", "What is unusual about this image?"],
-                    [f"{cur_dir}/examples/waterview.jpg", "What are the things I should be cautious about when I visit here?"],
+                    [f"{cur_dir}/examples/ROCO_00027.jpg", "The following image is a radiology scan. Deeply analyze and diagnose this image."],
+                    [f"{cur_dir}/examples/ROCO_00278.jpg", "The following image is a radiology scan. Deeply analyze and diagnose this image."],
+                    [f"{cur_dir}/examples/ROCO_00845.jpg", "The following image is a radiology scan. Deeply analyze and diagnose this image."]
                 ], inputs=[imagebox, textbox])
 
                 with gr.Accordion("Parameters", open=False, visible=False) as parameter_row:
-                    temperature = gr.Slider(minimum=0.0, maximum=1.0, value=0.2, step=0.1, interactive=True, label="Temperature",)
+                    temperature = gr.Slider(minimum=0.0, maximum=1.0, value=0, step=0.1, interactive=True, label="Temperature",)
                     top_p = gr.Slider(minimum=0.0, maximum=1.0, value=0.7, step=0.1, interactive=True, label="Top P",)
                     max_output_tokens = gr.Slider(minimum=0, maximum=1024, value=512, step=64, interactive=True, label="Max output tokens",)
 
             with gr.Column(scale=6):
-                chatbot = gr.Chatbot(elem_id="chatbot", label="LLaVA Chatbot", visible=False, height=550)
+                chatbot = gr.Chatbot(elem_id="chatbot", label="Chat with BabyDoctor!", visible=False, height=550)
                 with gr.Row():
                     with gr.Column(scale=8):
                         textbox.render()
