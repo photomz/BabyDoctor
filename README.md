@@ -16,3 +16,11 @@ This repository contains an implementation of BabyDoctor.
 8. Download the dataset: `git clone https://github.com/razorx89/roco-dataset; cd roco-dataset; python3 scripts/fetch.py; popd`.
 9. Get usable training data: `python3 LLaVA/scripts/markus/massage_data.py`.
 10. Do the actual finetuning: `mv LLaVA/finetune.sh .; bash finetune.sh`. This took 8 hours on the A10.
+11. Modify and run `./LLaVA/scripts/markus/inference.sh` to prompt it!
+12. You can run the Web UI using instructions from [the LLaVA repository](https://github.com/haotian-liu/LLaVA/tree/main#gradio-web-ui).
+
+## Links
+https://huggingface.co/photonmz/llava-roco-8bit - LLaVA model trained on ROCO, 4-bit quantized
+https://huggingface.co/kaelee/llava-llama-2-7b-chat-finetuning - Base LLaVA model used for finetuning
+https://github.com/haotian-liu/LLaVA - Base LLaVA repository this was forked from.
+http://81.144.250.138:20591/ - (Current) UI link.

@@ -267,7 +267,7 @@ def http_bot(state, model_selector, temperature, top_p, max_new_tokens, request:
         fout.write(json.dumps(data) + "\n")
 
 title_markdown = ("""
-# 🩻 BabyDoctor: Radiology Vision Assistant
+# 🩻 BabyDoctor: Radiologist in a Box
 [[Code]](https://github.com/photomz/LLaVA) [[Model]](https://huggingface.co/photonmz/llava-roco-8bit)
 """)
 
