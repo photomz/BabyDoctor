@@ -1,2 +1,4 @@
-cd ~
-python LLaVA/scripts/merge_lora_weights.py --model-path ~/git/lora-roco-llava/checkpoint-2600/ --model-base ~/git/LLaVA/checkpoints/llava-7b-pretrain/ --save-model-path llava-roco-8bit
+python ~/myllm/LLaVA/scripts/merge_lora_weights.py \
+	--model-path ~/roco-llava-finetuned/ \
+	--model-base kaelee/llava-llama-2-7b-chat-finetuning \
+	--save-model-path llava-roco-8bit

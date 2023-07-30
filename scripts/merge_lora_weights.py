@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parents[1].resolve()))
 
 
-from llava.model.builder import load_pretrained_model
+from llava.model.merger import load_pretrained_model
 from llava.mm_utils import get_model_name_from_path
 
 
