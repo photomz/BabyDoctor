@@ -66,3 +66,15 @@ We welcome contributions to BabyDoctor! If you have a feature request, bug repor
 ## 📜 License
 
 BabyDoctor is subject to the licenses of Meta's LLaMa 2, OpenAI's CLiP, OpenAI's GPT-4 User License Agreement, and LLaVa. Our data, code and checkpoints is intended and licensed for research use only.
+
+Attribution is appreciated but not necessary:
+
+```
+@misc{photomz2023,
+  author = {Markus Zhang, Vir Chau},
+  title = {BabyDoctor},
+  year = {2023},
+  howpublished = {\url{https://github.com/photomz/BabyDoctor}},
+  note = {GitHub}
+}
+```
