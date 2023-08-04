@@ -8,15 +8,14 @@ _The AI Radiologist You Can Chat With_
 
 <a href='https://huggingface.co/photonmz/llava-roco-8bit'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 <a href='https://huggingface.co/datasets/photonmz/roco-instruct-65k'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue'></a>
-<a href='https://pitch.com/public/40a91030-5b7d-4973-9519-f2d1c06ab935'><img src="https://img.shields.io/badge/%F0%9F%8E%A4%20Pitch-4Catalyzer-blue
-"></a> <a href="https://github.com/photomz/BabyDoctor/tree/main/MODEL_CARD.md"><img src="https://img.shields.io/badge/%F0%9F%93%9C%20Model%20Card-gray
-"></a>
+<a href='https://pitch.com/public/40a91030-5b7d-4973-9519-f2d1c06ab935'><img src='https://img.shields.io/badge/%F0%9F%8E%A4%20Pitch-4Catalyzer-blue'></a>
+<a href='https://github.com/photomz/BabyDoctor/tree/main/MODEL_CARD.md'><img src='https://img.shields.io/badge/%F0%9F%93%9C%20Model%20Card-gray'></a>
 
 Welcome to BabyDoctor, your personal "Ultrasound Radiologist in a Box"! Let's face it, most of us try to avoid seeing the doctor as much as we can, especially when it involves cryptic ultrasound scans. BabyDoctor is here to bridge the gap and demystify medical jargon for you.
 
 BabyDoctor uses a [LLaVA](https://llava-vl.github.io/) (Large Language and Vision Assistant) to generate ultrasound analysis. It's a combination of the cutting-edge LLaMa 2 text generator and OpenAI's CLiP for image embedding. The model was fine-tuned for ultrasound scans with a dataset of 65,000 text-image pairs, and trained using a 4-bit quantised LoRA on a Lambda Labs' A10 GPU for 8 hours.
 
-<div>
+<div align="center">
     <a href="https://www.loom.com/share/54c1f5ed36f74914b689695dae9e8e20">
       <p>Demo</p>
     </a>
@@ -45,7 +44,7 @@ To reproduce the results with BabyDoctor, follow these steps on a system with at
 A Web UI is available following instructions from [the BabyDoctor repository](https://github.com/haotian-liu/BabyDoctor/tree/main#gradio-web-ui).
 
 <p align="center">
-  <img src="images/chat.png" width="350" height="300" alt="BabyDoctor">
+  <img src="images/chat.png" width="500" height="450" alt="BabyDoctor">
 </p>
 
 ## 🧪 Curious?
